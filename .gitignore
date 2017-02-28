@@ -1,0 +1,8 @@
+# Files with personal information
+.DS_Store
+*.log
+.env
+
+# Build results and intermediates
+node_modules
+dist
