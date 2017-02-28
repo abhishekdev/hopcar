@@ -1,0 +1,39 @@
+{
+  "name": "hopcar",
+  "version": "0.1.0-pre",
+  "description": "A rental car search app using Hotwire.com API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekdev/hopcar.git"
+  },
+  "keywords": [
+    "rental",
+    "car",
+    "hotwire",
+    "hopcar"
+  ],
+  "author": "Abhishek Dev",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/abhishekdev/hopcar/issues"
+  },
+  "homepage": "https://github.com/abhishekdev/hopcar#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  }
+}
