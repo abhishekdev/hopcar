@@ -1,7 +1,10 @@
 {
   "presets": [
-    ["es2015", {
-      "modules": false
+    ["env", {
+      "targets": {
+        "node": "current",
+        "browsers": ["last 2 versions", "> 5%"]
+      }
     }],
     "react"
   ]
