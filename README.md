@@ -29,8 +29,8 @@ yarn run build:dev
 - [ ] How to communicate with xDomain backend?
   - [ ] Error Messages
   - [ ] Prefetch validation
-- [ ] Add landing and Routing page for Search
-- [ ] Add 404 page
+- [x] Add landing and Routing page for Search (**react-router**)
+- [x] Add 404 page
 - [ ] Design search form
 - [ ] Implement rental duration picker
   - [ ] Implement/Use datepicker control
