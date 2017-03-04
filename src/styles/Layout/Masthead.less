@@ -1,0 +1,26 @@
+@import '../_vars';
+
+.masthead {
+    position: fixed;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: @layer__masthead;
+
+    h1 {
+        margin: 0;
+        padding: 0.25em 0.5em;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    a {
+        &:active,
+        &:hover,
+        &:link,
+        &:visited {
+            text-decoration: none;
+        }
+    }
+}

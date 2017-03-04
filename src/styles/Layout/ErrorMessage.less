@@ -1,0 +1,65 @@
+@import "../_vars";
+
+.errorMsg {
+    color: gray;
+    text-align: center;
+    font-size: 14px;
+
+    .title {
+        font-size: 150%;
+        font-weight: 400;
+    }
+
+    .content,
+    .title {
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .link {
+        text-decoration: none;
+        border-bottom: 1px dotted;
+    }
+
+    .container {
+        margin: 2em auto;
+    }
+}
+
+.is-pageError {
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .container {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    @media @screen--S {
+        .title {
+            font-size: 150%;
+            margin: 0 0 0.3em;
+        }
+
+        .content {
+            width: 95%;
+        }
+    }
+
+    @media @screen--XS {
+        .title {
+            font-size: 100%;
+            margin: 0 0 0.3em;
+        }
+
+        .content {
+            width: 90%;
+        }
+    }
+}
