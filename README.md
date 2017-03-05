@@ -25,17 +25,23 @@ yarn run build:dev
 
 - [x] Implement development workflow (**Webpack/ExpressJs**)
 - [x] Add validators for Hotwire API (**JS**)
-- [x] Get car images from Hotwire CDN
-- [ ] How to communicate with xDomain backend?
-  - [ ] Error Messages
-  - [ ] Prefetch validation
+- [x] Get car images from Hotwire CDN (**JS**)
+- [x] How to communicate with xDomain backend? (**JSONP**)
+
+  - [x] Error Messages (**React states**)
+  - [ ] Prefetch validation (**JS**)
+
+    - [ ] Stop Empty Location from being submitted
+
 - [x] Add landing and Routing page for Search (**react-router**)
-- [x] Add 404 page
-- [ ] Design search form
-- [ ] Implement rental duration picker
-  - [ ] Implement/Use datepicker control
-  - [ ] Implement/Use timepicker control
-- [ ] Implement autocomplete for location picker
-- [ ] Responsive screens
-- [ ] Search results Design: as a list/grid
+- [x] Add 404 page (**react-router**)
+- [x] Design search form (**lesscs**)
+- [x] Implement rental duration picker
+
+  - [x] Implement/Use datepicker control (**React**)
+  - [x] Implement/Use timepicker control (**HTML**)
+
+- [x] Implement autocomplete for location picker (**Geosuggest**)
+- [x] Responsive screens (**lesscs**)
+- [x] Search results Design: as a list/grid (**lesscs, react**)
 - [ ] Add tests
