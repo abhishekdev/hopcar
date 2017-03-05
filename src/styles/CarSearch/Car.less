@@ -1,0 +1,86 @@
+@import '../_vars';
+
+.car {
+    .price {
+        font-size: 168%;
+        font-weight: 700;
+
+        &--perday {
+            &::after {
+                content: '/day';
+                font-weight: 400;
+                font-size: 60%;
+            }
+        }
+    }
+
+    .car__image {
+        width: 270px;
+    }
+
+    .rentalsummary {
+        margin: 1em;
+
+        .summary-title {
+            font-weight: 400;
+            font-size: 90%;
+            text-transform: uppercase;
+            padding-bottom: 0.25em;
+            margin-bottom: 0.25em;
+            border-bottom: 1px solid;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .currency-code {
+            font-weight: 400;
+            padding-right: 0.25em;
+        }
+    }
+    @media @screen--S {
+         @card-spacing: 1em;
+        border-bottom: 1px solid;
+        padding: @card-spacing 0;
+        margin: 0 @card-spacing;
+        position: relative;
+
+        .card-picture {
+            .image {
+                width: 90px;
+            }
+        }
+
+        .price {
+            font-size: 120%;
+        }
+
+        .cardetails {
+            @gutters: @card-spacing;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .card-content {
+                flex: 1 1 30%;
+                margin: 0 @gutters;
+            }
+        }
+
+        .rentalsummary {
+            display: none;
+        }
+
+        .action-btn {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-indent: -999px;
+        }
+    }
+}

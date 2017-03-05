@@ -6,6 +6,7 @@ const HOTWIRE_API = {
     searchBaseURL: 'https://api.hotwire.com/v1/search',
     imageBaseURL: 'https://ak-secure.hotwirestatic.com/y/static/images/car/cartypes/289x137/US/',
     queryParams: {
+        format: 'jsonp',
         apikey: 's6qy7hnhn2q6d5hpa9hpjf5y'
     },
     limits: {

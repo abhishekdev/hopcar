@@ -1,0 +1,49 @@
+@import '../_vars';
+
+.carlist {
+    padding: 1em 0;
+
+    .VFXcard-enter {
+        opacity: 0.01;
+
+        &.VFXcard-enter-active {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+        }
+    }
+
+    .VFXcard-leave {
+        opacity: 1;
+
+        &.VFXcard-leave-active {
+            opacity: 0.01;
+            transition: opacity 300ms ease-in;
+        }
+    }
+
+    .VFXcard-appear {
+        opacity: 0.1;
+        transform: translate3d(0, 15px, 0);
+
+        &.VFXcard-appear-active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: all 0.3s ease-in;
+        }
+    }
+
+    @media @screen--L {
+        padding: 1.25em;
+        display: flex;
+        overflow: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @media @screen--S {
+        // TODO: Find a better selector to find the last child of the card list when using react animations
+        > span:last-child > .car {
+            border-bottom: 0;
+        }
+    }
+}

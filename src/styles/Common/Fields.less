@@ -1,0 +1,70 @@
+.inputField(){
+    width: 100%;
+    border: 1px solid;
+    padding: 0.5em 1em;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+
+    &:focus {
+        box-shadow: 0 0 0 transparent;
+        outline: 0;
+    }
+}
+
+@keyframes wobble-little {
+    16.65% {
+        transform: translateX(8px);
+    }
+
+    33.3% {
+        transform: translateX(-6px);
+    }
+
+    49.95% {
+        transform: translateX(4px);
+    }
+
+    66.6% {
+        transform: translateX(-2px);
+    }
+
+    83.25% {
+        transform: translateX(1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.actionButton(){
+    background: transparent;
+    border-radius: 2px;
+    transition: 0.2s ease-out;
+    border: 2px solid;
+    border-radius: 2px;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    height: 3em;
+    line-height: 3;
+    padding: 0 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+        background-color: black;
+        color: #fff;
+    }
+
+    &--small {
+        height: 2em;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+}
+
+.button__primary {
+    .actionButton();
+}

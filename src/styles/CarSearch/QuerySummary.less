@@ -1,0 +1,29 @@
+.searchquery--mini {
+    border: 1px solid;
+    padding: 0.5em;
+    position: sticky;
+    top: 3.6em;
+    z-index: @layer__masthead + 1;
+    padding: 0.5em 1em;
+    margin: 1em;
+
+    .searchform__toggle {
+        border: 0;
+        background: transparent;
+        float: right;
+        cursor: pointer;
+    }
+
+    .destination {
+        font-weight: bold;
+    }
+
+    @media @screen--L {
+        width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media @screen--S {
+        margin: 1em;
+    }
+}

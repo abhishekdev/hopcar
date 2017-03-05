@@ -1,13 +1,29 @@
 import React, {PureComponent} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {helpers} from '../../utils/hotwire';
+import Car from './Car';
 
 class Carlist extends PureComponent {
     render() {
-        const {list} = this.props;
+        const {list, carTypes} = this.props;
         let carList;
 
         if (list.length) {
-            carList = list.map(car => <span key={car.HWRefNumber}>{car.CarTypeCode}, </span>);
+            const metadata = Carlist.getCarsMetadata(carTypes);
+            carList = list.map(car =>
+                <ReactCSSTransitionGroup
+                    key={car.HWRefNumber}
+                    transitionName="VFXcard"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    transitionAppear
+                    transitionAppearTimeout={500}
+                    transitionEnter={false}
+                    transitionLeave={false}
+                >
+                    <Car {...car} type={metadata[car.CarTypeCode]} />
+                </ReactCSSTransitionGroup>
+            );
         }
 
         return (

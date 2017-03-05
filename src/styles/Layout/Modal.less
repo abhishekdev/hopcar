@@ -1,0 +1,94 @@
+.modal--fullpage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    transform: translate3d(0, 0, 0);
+    display: none;
+
+    .Cal__Header__root {
+        border-radius: 0;
+    }
+}
+
+&.preload .modal--fullpage {
+    animation: none !important;
+}
+
+.modal--hidden {
+    animation-name: hidemodal;
+    transform: translate3d(0, 100%, 0);
+}
+
+.modal--visible {
+    display: block;
+    animation-name: showmodal;
+    animation-duration: 0.2s;
+}
+@keyframes hidemodal {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    99% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+@keyframes showmodal {
+    0% {
+        display: none;
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    1% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.modal__titlebar {
+    @hieght: 3em;
+    height: @hieght;
+    position: relative;
+
+    > .title {
+        text-align: center;
+        font-weight: lighter;
+        margin: 0;
+    }
+
+    > .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.25em 0.5em;
+        border: 0;
+    }
+
+    & + .modal__content {
+        position: absolute;
+        top: @hieght;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+}

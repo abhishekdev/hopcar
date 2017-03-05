@@ -1,0 +1,15 @@
+@import "../_vars";
+
+.actionButton(){
+    border-color: @color--prime;
+    color: @color--prime;
+
+    &:hover {
+        background-color: @color--prime;
+        color: contrast(@color--prime, black, white, 43%);
+    }
+}
+
+.button__primary {
+    .actionButton();
+}

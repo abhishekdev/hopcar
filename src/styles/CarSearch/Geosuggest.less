@@ -1,0 +1,44 @@
+@import (reference) "../Common/Fields";
+
+.geosuggest {
+    position: relative;
+}
+
+.geosuggest__input {
+    .inputField();
+}
+
+.geosuggest__suggests {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 25em;
+    padding: 0;
+    margin-top: -1px;
+    background: #fff;
+    border: 1px solid;
+    border-top-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+    z-index: 5;
+    transition: max-height 0.2s, border 0.2s;
+}
+
+.geosuggest__suggests--hidden {
+    max-height: 0;
+    overflow: hidden;
+    border-width: 0;
+}
+
+ // A geosuggest item
+.geosuggest__item {
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.geosuggest__item:focus,
+.geosuggest__item:hover {
+    background: lightgray;
+}

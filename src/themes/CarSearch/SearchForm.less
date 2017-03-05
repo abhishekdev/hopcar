@@ -1,0 +1,31 @@
+@import '../_vars';
+
+.searchform {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px rgba(63, 63, 68, .1), 0 1px 2px rgba(0, 0, 0, .05);
+    border-radius: 3px;
+
+    .fieldset {
+        legend {
+            color: @grayscale--medium;
+        }
+    }
+
+    .datetime__group {
+        .field {
+            border-bottom-color: @grayscale--light;
+        }
+    }
+
+    .field {
+        > span {
+            color: lighten(@grayscale--medium, 10%);
+        }
+    }
+}
+
+.search__loader {
+    .sk-wordpress {
+        background-color: @color--highlight;
+    }
+}
