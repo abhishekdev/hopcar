@@ -29,19 +29,32 @@ yarn run build:dev
 - [x] How to communicate with xDomain backend? (**JSONP**)
 
   - [x] Error Messages (**React states**)
-  - [ ] Prefetch validation (**JS**)
+  - [x] Prefetch validation (**JS**)
 
-    - [ ] Stop Empty Location from being submitted
+    - [x] Stop Empty Location from submission (**JS**)
+    - [ ] Show required-ness indicator for location
 
 - [x] Add landing and Routing page for Search (**react-router**)
+
 - [x] Add 404 page (**react-router**)
-- [x] Design search form (**lesscs**)
+
+- [x] Design search form (**less**)
 - [x] Implement rental duration picker
 
   - [x] Implement/Use datepicker control (**React**)
   - [x] Implement/Use timepicker control (**HTML**)
+  - [x] Implement autocomplete for location picker (**react-geosuggest, google maps API**)
 
-- [x] Implement autocomplete for location picker (**Geosuggest**)
-- [x] Responsive screens (**lesscs**)
-- [x] Search results Design: as a list/grid (**lesscs, react**)
+- [x] Responsive screens (**less**)
+
+- [x] Search results Design: as a list/grid (**less, react**)
+
+- [x] Check for accessibility
+
+  - [ ] Set aria roles on modal layers and loaders
+
+- [ ] Use SVG for icons
+
 - [ ] Add tests
+
+- [x] Remove source maps from production
