@@ -46,7 +46,9 @@ class CarSearchResults extends PureComponent {
         } else if (data.StatusCode && data.StatusCode !== '0') {
             error = {
                 text: data.StatusDesc,
-                stack: typeof data.Errors === 'object' ? [Object.assign({}, data.Errors.Error)] : [...data.Errors]
+                stack: typeof data.Errors === 'object'
+                    ? [Object.assign({}, data.Errors.Error)]
+                    : [...data.Errors]
             };
             content = <ErrorMessage error={error} />;
         } else if (data.Result && data.Result.length) {
