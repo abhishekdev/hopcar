@@ -32,15 +32,17 @@
         }
     }
     @media @screen--L {
-        padding: 1.25em;
-        display: flex;
-        overflow: auto;
-        flex-wrap: wrap;
-        justify-content: center;
+        // Set on the element created by the transition group
+        > div {
+            padding: 1.25em;
+            display: flex;
+            overflow: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
     @media @screen--S {
-        // TODO: Find a better selector to find the last child of the card list when using react animations
-        > span:last-child > .car {
+        .car:last-child {
             border-bottom: 0;
         }
     }

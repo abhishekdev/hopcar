@@ -3,59 +3,12 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import {helpers} from '../../utils/hotwire';
 import Car from './Car';
 
-class Carlist extends PureComponent {
-    render() {
-        const {list, carTypes} = this.props;
-        let carList;
-
-        if (list.length) {
-            const metadata = Carlist.getCarsMetadata(carTypes);
-            carList = list.map(car =>
-                <ReactCSSTransitionGroup
-                    key={car.HWRefNumber}
-                    transitionName="VFXcard"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={300}
-                    transitionAppear
-                    transitionAppearTimeout={500}
-                    transitionEnter={false}
-                    transitionLeave={false}
-                >
-                    <Car {...car} type={metadata[car.CarTypeCode]} />
-                </ReactCSSTransitionGroup>
-            );
-        }
-
-        return (
-            <div className="carlist">
-                {carList}
-            </div>
-        );
-    }
-}
-
-/**
- * Reduce car type array to a hash map for quick access to cartype information
- * @param  {Array} carTypes car type information as an array
- * @return {Object}         car type hash map with CarTypeCode as the keys
- */
-Carlist.getCarsMetadata = carTypes => (carTypes.reduce((metadata, car) => {
-    let temp = metadata;
-    if (!metadata[car.CarTypeCode]) {
-        temp = Object.assign(metadata, {
-            [car.CarTypeCode]: Object.assign(car, helpers.getCarImage(car.CarTypeCode))
-        });
-    }
-
-    return temp;
-}, {}));
-
-Carlist.defaultProps = {
+const defaultProps = {
     list: [],
     carTypes: []
 };
 
-Carlist.propTypes = {
+const propTypes = {
     list: React.PropTypes.arrayOf(
         React.PropTypes.shape({
             CurrencyCode: React.PropTypes.string,
@@ -92,5 +45,37 @@ Carlist.propTypes = {
         })
     )
 };
+
+class Carlist extends PureComponent {
+    render() {
+        const {list, carTypes} = this.props;
+        let carList;
+
+        if (list.length) {
+            const metadata = helpers.getCarsMetadata(carTypes);
+            carList = list.map(car => <Car {...car} key={car.HWRefNumber} type={metadata[car.CarTypeCode]} />);
+        }
+
+        return (
+            <div className="carlist">
+                <ReactCSSTransitionGroup
+                    component="div"
+                    transitionName="VFXcard"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    transitionAppear
+                    transitionAppearTimeout={500}
+                    transitionEnter={false}
+                    transitionLeave={false}
+                >
+                    {carList}
+                </ReactCSSTransitionGroup>
+            </div>
+        );
+    }
+}
+
+Carlist.defaultProps = defaultProps;
+Carlist.propTypes = propTypes;
 
 export default Carlist;

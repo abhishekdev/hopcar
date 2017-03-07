@@ -42,6 +42,11 @@ const getCarImage = (code) => {
     }
 };
 
+/**
+ * Fetch results from Hotwire based on passed query
+ * @param  {Object} query Query param as object support by Hotwire API
+ * @return {xhr}       jQuery XHR
+ */
 const fetchResults = query => $.ajax({
     url: [hotwire.searchBaseURL, 'car'].join('/'),
     // FIXME: Avoid using JSONP, use a valid CORS request instead
@@ -49,6 +54,22 @@ const fetchResults = query => $.ajax({
     crossDomain: true,
     data: Object.assign(hotwire.queryParams, query)
 });
+
+/**
+ * Reduce car type array to a hash map for quick access to cartype information
+ * @param  {Array} carTypes car type information as an array
+ * @return {Object}         car type hash map with CarTypeCode as the keys
+ */
+const getCarsMetadata = carTypes => (carTypes.reduce((metadata, car) => {
+    let temp = metadata;
+    if (!metadata[car.CarTypeCode]) {
+        temp = Object.assign(metadata, {
+            [car.CarTypeCode]: Object.assign(car, getCarImage(car.CarTypeCode))
+        });
+    }
+
+    return temp;
+}, {}));
 
 /**
  * Checks if date within searchable range
@@ -138,11 +159,13 @@ export default {
     isRentalDatetimeValid,
     isRentalDurationValid,
     getRentalDuration,
+    getCarsMetadata,
     getMissingQueryParts,
     getInitialRentalRange
 };
 
 export {getCarImage};
+export {getCarsMetadata};
 export {fetchResults};
 export {isRentalDatetimeValid};
 export {isRentalDurationValid};
