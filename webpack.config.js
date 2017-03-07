@@ -47,7 +47,7 @@ const config = {
         // extract CSS into separate file
         new ExtractTextPlugin(`${bundlename}.css`),
         // Generate index.html entry point
-        new HtmlWebpackPlugin({title: `${bundlename}`, template: './src/index.html'}),
+        new HtmlWebpackPlugin({title: `${APPCONFIG.brandname}`, template: './src/index.html'}),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [autoprefixer]
