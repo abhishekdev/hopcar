@@ -2,7 +2,7 @@
   "name": "hopcar",
   "version": "0.1.0-pre",
   "description": "A rental car search app using Hotwire.com API",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --config webpack.config.js",
     "build:dev": "webpack-dev-server",
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/abhishekdev/hopcar#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "compression": "^1.6.2",
     "express": "^4.15.2",
     "jquery": "^3.1.1",
     "moment": "^2.17.1",

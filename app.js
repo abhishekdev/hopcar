@@ -1,3 +1,4 @@
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 
@@ -5,6 +6,9 @@ const app = express();
 const env = process.env.NODE_ENV || 'development';
 
 app.set('port', (process.env.PORT || 5000));
+
+// Enable gzip
+app.use(compression());
 
 // Disable source maps in production
 if (env === 'production') {
