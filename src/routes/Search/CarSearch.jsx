@@ -100,7 +100,9 @@ class CarSearch extends Component {
             this.setState({
                 isLoading: false,
                 apiError: true,
-                results: {}
+                results: {
+                    StatusCode: 'netError'
+                }
             });
         });
     }

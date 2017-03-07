@@ -3,7 +3,9 @@ import {ErrorMessage} from '../../components/Layout';
 import {Carlist} from '../../components/CarSearch';
 
 const defaultProps = {
-    data: {}
+    data: {
+        StatusCode: 'initial'
+    }
 };
 
 const propTypes = {
@@ -30,13 +32,15 @@ class CarSearchResults extends PureComponent {
         let error;
         let content = null;
 
-        if (typeof data.StatusCode === 'undefined') {
+        if (data.StatusCode === 'netError') {
             error = {
                 text: 'Whoops! We hit a roadblock while searching.',
-                stack: [{
-                    ErrorCode: 'xhrError',
-                    ErrorMessage: 'Please check your connection and re-try'
-                }]
+                stack: [
+                    {
+                        ErrorCode: 'xhrError',
+                        ErrorMessage: 'Please check your connection and re-try'
+                    }
+                ]
             };
             content = <ErrorMessage error={error} />;
         } else if (data.StatusCode && data.StatusCode !== '0') {
