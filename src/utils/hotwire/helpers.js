@@ -113,12 +113,32 @@ const getRentalDuration = (duration) => {
     };
 };
 
+/**
+ * Creates a map of unfilled query params. Can be used for validation.
+ * The return map is has boolean values to indicate if the string matched the requiredness
+ * @param  {Object}  query query object as {<praramName>: string...}
+ * @return {Object}       {<praramName>: boolean...}
+ *
+ * TODO: Add more details for JSDoc param type
+ */
+const getMissingQueryParts = (query) => {
+    const requiredParams = Object.keys(hotwire.required);
+    const inValidParts = requiredParams.reduce((invalidParams, param) => {
+        const isValid = (!!$.trim(query[param]) === hotwire.required[param]);
+
+        return Object.assign(invalidParams, {[param]: isValid});
+    }, {});
+
+    return inValidParts;
+};
+
 export default {
     getCarImage,
     fetchResults,
     isRentalDatetimeValid,
     isRentalDurationValid,
     getRentalDuration,
+    getMissingQueryParts,
     getInitialRentalRange
 };
 
@@ -128,3 +148,4 @@ export {isRentalDatetimeValid};
 export {isRentalDurationValid};
 export {getRentalDuration};
 export {getInitialRentalRange};
+export {getMissingQueryParts};

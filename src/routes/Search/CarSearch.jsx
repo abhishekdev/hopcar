@@ -61,8 +61,14 @@ class CarSearch extends Component {
             startdate: query.startdate.format('L'),
             enddate: query.enddate.format('L')
         });
-        this.searchHotwire(flattenedQuery);
-        this.context.router.push('/search');
+        const inValidIds = helpers.getMissingQueryParts(flattenedQuery);
+        // Check only for dest others cannot be empty in this implementation
+        if (!inValidIds.dest) {
+            console.log('Pickup location cannot be empty');
+        } else {
+            this.searchHotwire(flattenedQuery);
+            this.context.router.push('/search');
+        }
     }
 
     toggleMinimode() {

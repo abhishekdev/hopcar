@@ -21,6 +21,13 @@ const HOTWIRE_API = {
     format: {
         date: 'MM/DD/YYYY', // e.g. 12/31/2017
         time: 'HH:mm' // e.g. 00:00, 23:59
+    },
+    required: {
+        dest: true,
+        startdate: true,
+        enddate: true,
+        pickuptime: true,
+        dropofftime: true
     }
 };
 
