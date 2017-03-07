@@ -63,9 +63,11 @@ class TimePicker extends PureComponent {
         return (
             <label htmlFor={id} className="field">
                 <span>{label}</span>
-                <select id={id} value={selected} onChange={this.props.onChange}>
-                    {timeoptions}
-                </select>
+                <div className="input-dropdown">
+                    <select id={id} value={selected} onChange={this.props.onChange}>
+                        {timeoptions}
+                    </select>
+                </div>
             </label>
         );
     }

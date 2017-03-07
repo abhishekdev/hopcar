@@ -15,6 +15,32 @@
         .field {
             border-bottom-color: @grayscale--light;
         }
+
+        // remove select box styling
+        .input-dropdown {
+            position: relative;
+
+            select {
+                appearance: none;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            &::before {
+                // content: '\e0cd'; // timer
+                content: '\e034'; // down arrow
+                display: inline-block;
+                width: 1em;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: -1;
+                font-family: Icons;
+                font-size: 85%;
+                padding-right: 0.25em;
+            }
+        }
     }
 
     .field {
