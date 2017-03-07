@@ -111,15 +111,15 @@ const isRentalDurationValid = (start, end) => {
  */
 const getInitialRentalRange = () => {
     // book in the next hour, roundoff minutes
-    const now = moment().add(1, 'hours').startOf('hour');
+    const now = moment().add(3, 'hours').startOf('hour');
     const nextXdays = now.clone().add(hotwire.limits.dateRange, 'days');
 
     return {start: now, end: nextXdays};
 };
 
 /**
- * Get rental duration query in a format comtaible with the backend API
- * @param  {{start: moment, end: moment}} duration [description]
+ * Get rental duration query in a format compatible with the backend API
+ * @param  {{start: moment, end: moment}} duration Rental duration
  * @return {{startdate: string, enddate: string, pickuptime: string, dropofftime: string}}
  */
 const getRentalDuration = (duration) => {

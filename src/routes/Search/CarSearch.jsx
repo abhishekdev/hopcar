@@ -31,11 +31,11 @@ class CarSearch extends Component {
                 dateRangeEnd: dateRange.end
             },
             query: {
-                dest: '',
+                dest: 'Boston, MA, United States',
                 startdate: dateRange.start,
                 enddate: dateRange.start.clone().add(1, 'days'),
-                pickuptime: '12:00',
-                dropofftime: '12:00'
+                pickuptime: dateRange.start.format('HH:mm'),
+                dropofftime: dateRange.start.format('HH:mm') // keep a gap of 24 hrs
             },
             results: null,
             minimode: false,
