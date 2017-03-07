@@ -37,6 +37,9 @@ class CarSearch extends Component {
                 pickuptime: dateRange.start.format('HH:mm'),
                 dropofftime: dateRange.start.format('HH:mm') // keep a gap of 24 hrs
             },
+            invalidFields: {
+                dest: false
+            },
             results: null,
             minimode: false,
             isLoading: false,
@@ -62,10 +65,20 @@ class CarSearch extends Component {
             enddate: query.enddate.format('L')
         });
         const inValidIds = helpers.getMissingQueryParts(flattenedQuery);
-        // Check only for dest others cannot be empty in this implementation
+        // Check only for dest as other fields cannot be empty
         if (!inValidIds.dest) {
-            console.log('Pickup location cannot be empty');
+            this.setState({
+                invalidFields: {
+                    dest: true
+                }
+            });
         } else {
+            // reset invalid fields
+            this.setState({
+                invalidFields: {
+                    dest: false
+                }
+            });
             this.searchHotwire(flattenedQuery);
             this.context.router.push('/search');
         }
@@ -158,6 +171,7 @@ class CarSearch extends Component {
                     limits={Object.assign({}, this.state.limits)}
                     onSubmit={this.handleSubmit}
                     onChange={this.handleQueryChange}
+                    invalidFields={this.state.invalidFields}
                 />
                 <div className="search-results">
                     {querySummary}

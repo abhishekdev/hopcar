@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import MediaQuery from 'react-responsive';
-import Geosuggest from 'react-geosuggest';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import InfiniteCalendar, {Calendar, withRange} from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
+import LocationPicker from './LocationPicker';
 import ModalCalendar from './ModalCalendar';
 import TimeField from './TimePicker';
 
@@ -20,6 +20,9 @@ const propTypes = {
     onChange: React.PropTypes.func,
     onSubmit: React.PropTypes.func,
     className: React.PropTypes.string,
+    invalidFields: React.PropTypes.shape({
+        dest: React.PropTypes.bool
+    }).isRequired,
     limits: React.PropTypes.shape({
         dateRangeStart: momentPropTypes.momentObj.isRequired,
         dateRangeEnd: momentPropTypes.momentObj.isRequired
@@ -109,28 +112,23 @@ class SearchForm extends Component {
     }
 
     render() {
-        const {query, limits} = this.props;
-
+        const {query, limits, invalidFields} = this.props;
 
         return (
             <div className={this.props.className}>
                 <form onSubmit={this.props.onSubmit} className="searchform">
                     <fieldset className="fieldset">
                         <legend>Search for Rental Cars</legend>
-                        <label htmlFor="dest" className="field">
-                            <span>
-                                <span className="oi" data-glyph="map-marker" />
-                                Pickup Location
-                            </span>
-                            <Geosuggest
-                                id="dest"
-                                className="pickupfield"
-                                initialValue={query.dest}
-                                placeholder="Enter address, city, zip or airport"
-                                onChange={this.handleLocationChange}
-                                onSuggestSelect={this.handleLocationSelect}
-                            />
-                        </label>
+                        <LocationPicker
+                            id="dest"
+                            labelName="Pickup Location"
+                            isInvalid={invalidFields.dest && query.dest === ''}
+                            validationMessage="Pickup Location cannot be empty"
+                            initialValue={query.dest}
+                            placeholder="Enter address, city, zip or airport"
+                            onChange={this.handleLocationChange}
+                            onSuggestSelect={this.handleLocationSelect}
+                        />
                         <MediaQuery maxWidth={600} className="datetime__wrapper">
                             <div className="datetime__group">
                                 <label htmlFor="pickupdate" className="field">

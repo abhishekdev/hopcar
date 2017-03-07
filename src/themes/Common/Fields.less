@@ -13,3 +13,15 @@
 .button__primary {
     .actionButton();
 }
+
+.locationPicker {
+    &.isInvalid {
+        & ~ span {
+            color: red;
+        }
+
+        .geosuggest__input {
+            border-color: red;
+        }
+    }
+}
