@@ -1,4 +1,5 @@
 import moment from 'moment';
+import $ from 'jquery';
 import hotwire from './settings';
 
 /**
@@ -40,6 +41,14 @@ const getCarImage = (code) => {
             return createImage('Special.png');
     }
 };
+
+const fetchResults = query => $.ajax({
+    url: [hotwire.searchBaseURL, 'car'].join('/'),
+    // FIXME: Avoid using JSONP, use a valid CORS request instead
+    dataType: 'jsonp',
+    crossDomain: true,
+    data: Object.assign(hotwire.queryParams, query)
+});
 
 /**
  * Checks if date within searchable range
@@ -106,6 +115,7 @@ const getRentalDuration = (duration) => {
 
 export default {
     getCarImage,
+    fetchResults,
     isRentalDatetimeValid,
     isRentalDurationValid,
     getRentalDuration,
@@ -113,6 +123,7 @@ export default {
 };
 
 export {getCarImage};
+export {fetchResults};
 export {isRentalDatetimeValid};
 export {isRentalDurationValid};
 export {getRentalDuration};

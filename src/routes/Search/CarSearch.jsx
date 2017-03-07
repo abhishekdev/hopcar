@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Spinkit from 'react-spinkit';
 import cx from 'classnames';
-import $ from 'jquery';
-import {settings as api, helpers} from '../../utils/hotwire';
+import {helpers} from '../../utils/hotwire';
 import {SearchForm, QuerySummary} from '../../components/CarSearch';
 
 const propTypes = {
@@ -17,6 +16,7 @@ const contextTypes = {
     router: React.PropTypes.object
 };
 
+// Promise for the Cross Domain Request;
 let xdr;
 
 class CarSearch extends Component {
@@ -74,28 +74,26 @@ class CarSearch extends Component {
     searchHotwire(query) {
         xdr && xdr.abort();
 
+        // Switch to loading state
         this.setState({
-            minimode: true,
+            minimode: false,
             isLoading: true,
             apiError: false
         });
 
-        // FIXME: Avoid using JSONP, use a valid CORS request instead
-        xdr = $.ajax({
-            url: [api.searchBaseURL, 'car'].join('/'),
-            dataType: 'jsonp',
-            crossDomain: true,
-            data: Object.assign(api.queryParams, query)
-        });
+        xdr = helpers.fetchResults(query);
 
+        // Success: Handle API response
         xdr.done((data, status) => {
             this.setState({
+                minimode: true,
                 isLoading: false,
                 apiError: false,
                 results: data
             });
         });
 
+        // Fail: Show network communication error message
         xdr.fail((xhr, status, err) => {
             this.setState({
                 isLoading: false,
