@@ -2,6 +2,8 @@
 
 A rental car search app using the freely available public [API from Hotwire.com](http://developer.hotwire.com/docs/Rental_Car_Shopping_API). The user searches for rental car using pickup location and rental duration.
 
+ [![Build Status](https://travis-ci.org/abhishekdev/hopcar.svg?branch=master)](https://travis-ci.org/abhishekdev/hopcar) [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abhishekdev/hopcar)
+
 ## Setup
 
 ### Production
@@ -32,13 +34,14 @@ yarn run build:dev
   - [x] Prefetch validation (**JS**)
 
     - [x] Stop Empty Location from submission (**JS**)
-    - [ ] Show required-ness indicator for location
+    - [x] Show required-ness indicator for location
 
 - [x] Add landing and Routing page for Search (**react-router**)
 
 - [x] Add 404 page (**react-router**)
 
 - [x] Design search form (**less**)
+
 - [x] Implement rental duration picker
 
   - [x] Implement/Use datepicker control (**React**)
@@ -52,6 +55,8 @@ yarn run build:dev
 - [x] Check for accessibility
 
   - [ ] Set aria roles on modal layers and loaders
+
+- [ ] Translations
 
 - [ ] Use SVG for icons
 
