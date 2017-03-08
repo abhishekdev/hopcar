@@ -1,0 +1,22 @@
+@import "../_vars";
+
+.footer {
+    display: none;
+    background: white;
+    border: 1px solid #eee;
+
+    @media @screen--L {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0.5em 1em;
+    }
+
+    a {
+        text-decoration: none;
+        border-bottom: 1px dotted;
+    }
+}
