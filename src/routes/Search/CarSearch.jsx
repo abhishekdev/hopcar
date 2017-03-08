@@ -105,7 +105,8 @@ class CarSearch extends Component {
         // Success: Handle API response
         xdr.done((data, status) => {
             this.setState({
-                minimode: true,
+                // switch to mini mode only when valid results are found
+                minimode: data && data.Result && data.Result.length,
                 isLoading: false,
                 apiError: false,
                 results: data
