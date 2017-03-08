@@ -15,7 +15,6 @@
         .field {
             border-bottom-color: @grayscale--light;
         }
-
         // remove select box styling
         .input-dropdown {
             position: relative;
@@ -46,6 +45,10 @@
     .field {
         > span {
             color: lighten(@grayscale--medium, 10%);
+            @media @screen--S {
+                // Labels seem too big on small screen device font size of 16px
+                font-size: 70%;
+            }
         }
     }
 }
