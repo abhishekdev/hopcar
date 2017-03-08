@@ -4,8 +4,9 @@
 
 A rental car search app using the available public [API from Hotwire.com](http://developer.hotwire.com/docs/Rental_Car_Shopping_API). It lets the user search for rental cars using pickup location and rental duration.
 
-For More details:
-[Wiki][Wiki] | [ToDo][ToDo]
+**Read more details at Wiki:**
+
+[Features][Features] | [Architecture][Wiki] | [To-Do][ToDo]
 
 ## Setup
 
@@ -28,3 +29,4 @@ yarn run build:dev
 
 [Wiki]: https://github.com/abhishekdev/hopcar/wiki
 [ToDo]: https://github.com/abhishekdev/hopcar/wiki/ToDo
+[Features]: https://github.com/abhishekdev/hopcar/wiki/Features
